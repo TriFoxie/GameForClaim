@@ -1,34 +1,36 @@
-﻿using System;
-
-public interface IDamageCalculator
+﻿
+public class DamageCalculator : IDamageCalculator
 {
-    /// <summary>
-    /// Get the damage calculator or instantiate a new one if none exists
-    /// </summary>
-    /// <returns>Singleton DamageCalculator Object</returns>
-    IDamageCalculator GetInstance();
+    private static DamageCalculator _instance;
+    
+    public IDamageCalculator GetInstance()
+    {
+        if (_instance == null)
+        {
+            _instance = new DamageCalculator();
+        }
+        else
+        {
+            return _instance;
+        }
+    }
 
-    /// <summary>
-    /// Calculate the value of the damage caused
-    /// and adjust the relative damage states of the parameter objects
-    /// </summary>
-    /// <remarks>
-    /// The sum of the damage will be updated to reflect the financial losses after the damage. <br/>
-    /// The states of the damaged objects will be updated to reflect new damage levels
-    /// </remarks>
-    /// <param name="component1">The object colliding with <paramref name="component2"/></param>
-    /// <param name="component2">The object being collided into by <paramref name="component1"/></param>
-    public void CalculateDamage(DamagableComponent component1, DamagableComponent component2);
+    private DamageCalculator()
+    {
+    }
 
-    /// <summary>
-    /// Returns the sum of all financial loss since last damage reset
-    /// </summary>
-    /// <returns>The value of damage</returns>
-    public float GetValueOfCurrentDamage();
+    public void CalculateDamage(DamagableComponent component1, DamagableComponent component2)
+    {
+        throw new System.NotImplementedException();
+    }
 
-    /// <summary>
-    /// The current sum of the finanical impact of damage will be reset. <br/>
-    /// Damage is still retained on an object by object basis.
-    /// </summary>
-    public void ResetValues();
+    public float GetValueOfCurrentDamage()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void ResetValues()
+    {
+        throw new System.NotImplementedException();
+    }
 }

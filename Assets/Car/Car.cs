@@ -3,7 +3,7 @@ using UnityEngine;
 using GameForClaim;
 using UnityEditor;
 
-public class Car : MonoBehaviour, IDamagableComponent
+public class Car : MonoBehaviour
 {
     private Rigidbody CarRB;
     private WheelCollider[] wheels;
@@ -76,29 +76,6 @@ public class Car : MonoBehaviour, IDamagableComponent
     private void Steering()
     {
         wheels[0].steerAngle = wheels[1].steerAngle = horizontalInput * maxSteerAngle;
-    }
-    #endregion
-
-    
-    #region IDamagableComponent
-    public float GetUndamagedValue()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public decimal GetMovement()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public decimal GetHealthLevel()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void SetNewHealthLevel(decimal newHealthLevel)
-    {
-        throw new System.NotImplementedException();
     }
     #endregion
 }

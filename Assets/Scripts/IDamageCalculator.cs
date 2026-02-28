@@ -2,6 +2,9 @@
 
 namespace GameForClaim
 {
+    /// <summary>
+    /// A singleton that tracks and calculates damages and the related costings
+    /// </summary>
     public interface IDamageCalculator
     {
         /// <summary>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 
 namespace GameForClaim
 {
@@ -11,10 +12,20 @@ namespace GameForClaim
         public float GetUndamagedValue();
     
         /// <summary>
-        /// Get a decimal (positive or negative) representation of the motion of the object to the origin
+        /// Get the vector 2 that represents this objects movement
         /// </summary>
-        /// <returns>The motion of this object relative to the origin as a decimal</returns>
-        public Motion GetMovement();
+        /// <returns>A vector 2 that represents this objects movement</returns>
+        public Vector2 GetMovement();
+
+        /// <summary>
+        /// Retrieves the vulnerability of the damagable component, where an item with vunerability 1 is less
+        /// resilient than one with vunerability 0.2
+        /// </summary>
+        /// <remarks>
+        /// Must be between (0,1] (inclusive only for 1). 
+        /// </remarks>
+        /// <returns>Decimal in bound (0, 1]</returns>
+        public decimal GetVunerability();
 
         /// <summary>
         /// Retrieve Health level, should be between 0 and 1

@@ -14,7 +14,7 @@ namespace GameForClaim
         /// Get a decimal (positive or negative) representation of the motion of the object to the origin
         /// </summary>
         /// <returns>The motion of this object relative to the origin as a decimal</returns>
-        public decimal GetMovement();
+        public Motion GetMovement();
 
         /// <summary>
         /// Retrieve Health level, should be between 0 and 1

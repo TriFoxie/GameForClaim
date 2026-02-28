@@ -18,7 +18,7 @@ public interface IDamageCalculator
     /// </remarks>
     /// <param name="component1">The object colliding with <paramref name="component2"/></param>
     /// <param name="component2">The object being collided into by <paramref name="component1"/></param>
-    public void CalculateDamage(DamagableComponent component1, DamagableComponent component2);
+    public void CalculateDamage(IDamagableComponent component1, IDamagableComponent component2);
 
     /// <summary>
     /// Returns the sum of all financial loss since last damage reset

@@ -1,6 +1,6 @@
 ﻿using System;
 
-public interface DamagableComponent
+public interface IDamagableComponent
 {
     /// <summary>
     /// Get the original value of the component

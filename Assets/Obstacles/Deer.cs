@@ -9,6 +9,7 @@ public class Deer : MonoBehaviour
     [SerializeField]
     private float speed = 1;
     public Transform player;
+    private Rigidbody rb;
 
     public void SetSpeed(float speed)
     {
@@ -31,11 +32,18 @@ public class Deer : MonoBehaviour
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
         player = FindFirstObjectByType<Car>().transform;
         transform.LookAt(player);
+        rb.useGravity = false;
     }
     private void Update()
     {
         Move();
+    }
+    private void OnCollisionEnter(Collision other)
+    {
+        speed = 0;
+        rb.useGravity = true;
     }
 }

@@ -93,7 +93,7 @@ public class Car : MonoBehaviour, IDamagableComponent
         return new Vector2(CarRB.linearVelocity.x, CarRB.linearVelocity.z);
     }
 
-    public decimal GetVunerability()
+    public decimal GetVulnerability()
     {
         return (decimal)vulnerability;
     }

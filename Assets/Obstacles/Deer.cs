@@ -76,7 +76,7 @@ public class Deer : MonoBehaviour, IDamagableComponent
         return new Vector2(velocity3d.x, velocity3d.z);
     }
 
-    public decimal GetVunerability()
+    public decimal GetVulnerability()
     {
         return (decimal)vulnerability;
     }

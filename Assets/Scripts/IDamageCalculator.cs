@@ -11,7 +11,10 @@ namespace GameForClaim
         /// Get the damage calculator or instantiate a new one if none exists
         /// </summary>
         /// <returns>Singleton DamageCalculator Object</returns>
-        IDamageCalculator GetInstance();
+        public static IDamageCalculator GetInstance()
+        {
+            throw new NotImplementedException("GetInstance() is not implemented by default by the interface. Please implement it.");
+        }
 
         /// <summary>
         /// Calculate the value of the damage caused

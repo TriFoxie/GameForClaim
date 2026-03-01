@@ -25,7 +25,7 @@ namespace GameForClaim
         /// Must be between (0,1] (inclusive only for 1). 
         /// </remarks>
         /// <returns>Decimal in bound (0, 1]</returns>
-        public decimal GetVunerability();
+        public decimal GetVulnerability();
 
         /// <summary>
         /// Retrieve Health level, should be between 0 and 1

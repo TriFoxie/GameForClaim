@@ -9,6 +9,7 @@ public class Car : MonoBehaviour, IDamagableComponent
     private Rigidbody CarRB;
     private WheelCollider[] wheels;
     private IDamageCalculator damageCalculator;
+    private float lastCollision;
 
     //Properties
     [Header("Car Data")] public string name { get; private set; }
@@ -31,6 +32,7 @@ public class Car : MonoBehaviour, IDamagableComponent
         CarRB = GetComponent<Rigidbody>();
         wheels[0].motorTorque = wheels[1].motorTorque = wheels[2].motorTorque = wheels[3].motorTorque = 0.00001f;
         damageCalculator = DamageCalculator.GetInstance();
+        lastCollision = float.MinValue;
     }
     
     void Update()
@@ -48,7 +50,12 @@ public class Car : MonoBehaviour, IDamagableComponent
 
     private void OnCollisionEnter(Collision other)
     {
-        damageCalculator.CalculateDamage(this, other.gameObject.GetComponent<IDamagableComponent>());
+        if (Time.time - lastCollision > 1f)
+        {
+            damageCalculator.CalculateDamage(this, other.gameObject.GetComponent<IDamagableComponent>());
+        }
+        lastCollision = Time.time;
+        Debug.Log("<color=red>CRASH! </color> New Value: " + damageCalculator.GetValueOfCurrentDamage());
     }
 
     #endregion

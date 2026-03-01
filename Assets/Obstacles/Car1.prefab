@@ -1356,9 +1356,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31a85841d60b2e5f0920de63296cddc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  value: 40000
+  health: 1
+  vulnerability: 0.6
   speed: 1
-  collisionForceMultiplier: 1
-  player: {fileID: 0}
+  collisionForceMultiplier: 5
 --- !u!54 &8129993177978914255
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -32,19 +32,24 @@ namespace GameForClaim
             // Calculate the damage factor which defines how both objects are affected
             float relativeSpeed =  CalculateRelativeSpeed(component1, component2);
             
-            int damageFactor = (int) Math.Ceiling((relativeSpeed * relativeSpeed)/35);
+            int damageFactor = (int) Math.Ceiling((relativeSpeed * relativeSpeed)/2);
             
             // Calculate the new health of the objects using the damage factor and vulnerability
-            decimal damage1 = (component1.GetHealthLevel()) / (damageFactor * component1.GetVulnerability());
-            decimal damage2 = (component2.GetHealthLevel()) / (damageFactor * component2.GetVulnerability());
+            decimal newHealth1 = (component1.GetHealthLevel()) / (damageFactor * component1.GetVulnerability() > 1 ? damageFactor * component1.GetVulnerability() : 1);
+            decimal newHealth2 = (component2.GetHealthLevel()) / (damageFactor * component2.GetVulnerability() > 1 ? damageFactor * component2.GetVulnerability() : 1);
             
+
+            // Ensure health doesn't go out of range
+            newHealth1 = Math.Max(0, newHealth1);
+            newHealth2 = Math.Max(0, newHealth2);
+
             // Deal the damage
-            component1.SetNewHealthLevel(component1.GetHealthLevel() - damage1);
-            component2.SetNewHealthLevel(component2.GetHealthLevel() - damage2);
+            component1.SetNewHealthLevel(newHealth1);
+            component2.SetNewHealthLevel(newHealth2);
             
             // Calculate the difference in value for both objects and add it to the current finances
             _monetaryLoss += currentValue1 - CalculateCurrentObjectValue(component1);
-            _monetaryLoss += currentValue1 - CalculateCurrentObjectValue(component2);
+            _monetaryLoss += currentValue2 - CalculateCurrentObjectValue(component2);
         }
 
         public float GetValueOfCurrentDamage()

@@ -2,20 +2,23 @@ using System;
 using UnityEngine;
 using GameForClaim;
 using UnityEditor;
+using Vector2 = System.Numerics.Vector2;
 
-public class Car : MonoBehaviour
+public class Car : MonoBehaviour, IDamagableComponent
 {
     private Rigidbody CarRB;
     private WheelCollider[] wheels;
 
     //Properties
-    [SerializeField]
-    private float enginePower;
-    [SerializeField]
-    private float brakingForce;
-    [SerializeField]
-    [Range(0.0f, 90.0f)]
-    private float maxSteerAngle;
+    [Header("Car Data")] public string name { get; private set; }
+    [SerializeField] private float value = 27000; //Cost of the car in GBP.
+    [Range(0, 1)] [SerializeField] private float health = 1; //How much damage the car can withstand remaining. 0 is broken 1 is fine.
+    [Range(0, 1)] [SerializeField] private float vulnerability = 0.5f; //How easily the car take damage. 0 is vulnerable 1 is strong.
+    
+    [Header("Driving Properties")]
+    [SerializeField] private float enginePower;
+    [SerializeField] private float brakingForce;
+    [SerializeField] [Range(0.0f, 90.0f)] private float maxSteerAngle;
     
     private float verticalInput;
     private float horizontalInput;
@@ -76,6 +79,33 @@ public class Car : MonoBehaviour
     private void Steering()
     {
         wheels[0].steerAngle = wheels[1].steerAngle = horizontalInput * maxSteerAngle;
+    }
+    #endregion
+
+    #region IDamagableComponent
+    public float GetUndamagedValue()
+    {
+        return value;
+    }
+
+    public Vector2 GetMovement()
+    {
+        return new Vector2(CarRB.linearVelocity.x, CarRB.linearVelocity.z);
+    }
+
+    public decimal GetVunerability()
+    {
+        return (decimal)vulnerability;
+    }
+
+    public decimal GetHealthLevel()
+    {
+        return (decimal)health;
+    }
+
+    public void SetNewHealthLevel(decimal newHealthLevel)
+    {
+        health = (float)newHealthLevel;
     }
     #endregion
 }

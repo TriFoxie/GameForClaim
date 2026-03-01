@@ -680,7 +680,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2e131fe358807302296df63606771221, type: 2}
+  - {fileID: 2100000, guid: dcef66a6952697d418813d8146194964, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1033,7 +1033,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1213787913}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 282638809fa332b7b990e9a802422869, type: 3}
+  m_Script: {fileID: 11500000, guid: bab42cbd047e81b42bcb8566412d7523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1213787916
@@ -1221,11 +1221,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2085498799}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e10ed4ec9c5458b678086c4f4b35d334, type: 3}
+  m_Script: {fileID: 11500000, guid: e3a45e2c7f5aa7c4894e10d25d2d0862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   deer: {fileID: 3582326278650831567, guid: 6010423c7351466ed8aa99ddf7f74e95, type: 3}
-  car: {fileID: 6954271979266138970, guid: 2b7c7ec5f87da7c0d888eb5807e71400, type: 3}
+  car: {fileID: 6954271979266138970, guid: dfea81a85a8193e40a3e728b8ce81a7a, type: 3}
 --- !u!1001 &2042655163112272717
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Settings.unity
     guid: daa8b97ae96ece74b8b72a1a237b188e
+  - enabled: 1
+    path: Assets/Scenes/Highway.unity
+    guid: 644fbcf62f88bb0b8b9ed622358915cd
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

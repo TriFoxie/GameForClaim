@@ -803,7 +803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 202d8c15d99067e42b5aba11fba236c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: ClaimSetUp
+  sceneName: Highway
 --- !u!4 &830009745
 Transform:
   m_ObjectHideFlags: 0

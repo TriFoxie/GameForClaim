@@ -37,7 +37,7 @@ namespace GameForClaim
             component1.SetNewHealthLevel(component1.GetHealthLevel() / damageFactor);
             component2.SetNewHealthLevel(component2.GetHealthLevel() / damageFactor);
             
-            // Calculate the difference in value for both objects and add it to the currently damaged
+            // Calculate the difference in value for both objects and add it to the current finances
             _monetaryLoss += currentValue1 - CalculateCurrentObjectValue(component1);
             _monetaryLoss += currentValue1 - CalculateCurrentObjectValue(component2);
         }
